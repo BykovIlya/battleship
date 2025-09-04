@@ -112,11 +112,6 @@ func NewGame(boardSize int, ship Ship) *Game {
 	}
 }
 
-func (g *Game) hitAt(r, c int) bool {
-	sr, sc := g.Ship.Position()
-	return r == sr && c == sc && g.Ship.Alive()
-}
-
 func (g *Game) TakeShot(r, c int) (ShotResult, error) {
 	if g.Over {
 		return ShotResult{}, fmt.Errorf("game is allready done")
